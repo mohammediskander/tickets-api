@@ -75,13 +75,17 @@ const Schema = new mongoose.Schema({
       name: String,
       car: {
         model: String,
+        // licencePlate: {
+        //   letters: String,
+        //   digits: {
+        //     type: String,
+        //     required: true
+        //   },
+        //   color: String
+        // },
         licencePlate: {
-          letters: String,
-          digits: {
-            type: String,
-            required: true
-          },
-          color: String
+          type: String,
+          required: true
         }
       }
     },

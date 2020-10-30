@@ -9,7 +9,7 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import Translation from "./@utils/translation";
 import keys from "./config/keys";
-// import { Passport as PassportJwt } from "./services";
+import { Passport as PassportJwt } from "./services";
 
 export const configureServer = (app: any) => {
   app.use(Express.json({ limit: "5mb" }));
@@ -25,7 +25,7 @@ export const configureServer = (app: any) => {
   app.use(morgan("common"));
   app.use(helmet());
   app.use(passport.initialize())
-  // PassportJwt(passport)
+  PassportJwt(passport)
 
   mongoose
     .connect(keys.mongoURI, {
@@ -60,8 +60,11 @@ export const configureServer = (app: any) => {
       response: Express.Response,
       next: Express.NextFunction
     ) => {
+      console.log(request.body)
+      console.log(error.message)
+      console.log("???")
       const statusCode =
-        response.statusCode === 200 ? 500 : response.statusCode;
+        response.statusCode === 200 ? 501 : response.statusCode;
       response.status(statusCode);
       response.json({
         name: new Translation(

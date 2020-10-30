@@ -2,6 +2,7 @@ import {Request, Response, NextFunction} from "express";
 import { Ticket, TicketInterface } from "../../models"
 
 export default (request: any, response: Response, next: NextFunction) => {
+  console.log(request.body)
   new Ticket({
     name: request.body.name,
     user: request.user._id,
