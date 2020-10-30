@@ -1,7 +1,7 @@
 import Express from "express";
 // import Cors from "cors";
 import passport from "passport";
-import Routes from "@utils/routes";
+import Routes from "./@utils/routes";
 import routes from "./app/routes";
 import bodyParser from "body-parser";
 import helmet from "helmet";
@@ -41,7 +41,7 @@ export const configureServer = (app: any) => {
       console.log(error.message);
     });
 
-  // app.use("/api/v1", new Routes(routes).configureRoutes());
+  app.use("/api/v1", new Routes(routes).configureRoutes());
   app.use(
     (
       request: Express.Request,
