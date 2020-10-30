@@ -1,5 +1,4 @@
-import { Application, RequestHandler, Router } from "express";
-import { ValidationsInterface } from "../@utils/validation";
+import { RequestHandler, Router } from "express";
 import passport from "passport";
 
 export interface RouteInterface {
@@ -10,7 +9,6 @@ export interface RouteInterface {
   roles?: object[];
   access: "public" | "private";
   method: "post" | "get" | "patch" | "delete";
-  validation?: ValidationsInterface;
 }
 
 interface ExceptionHandler {
