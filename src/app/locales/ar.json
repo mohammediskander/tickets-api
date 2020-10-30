@@ -1,0 +1,9 @@
+{
+  "unkownErrorException": "خطأ غير معروف؟",
+  "__DEFAULT": "الترجمة النصية مفقوده. خطأ غير معروف.",
+  "name": "الإسم",
+  "notValidCharOnly": "ليس حُروفاً فقط.",
+  "password": "كلمة السر",
+  "notValidPassword": "ضعيفه",
+  "required": "مطلوب"
+}
