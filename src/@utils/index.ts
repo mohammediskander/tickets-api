@@ -1,5 +1,5 @@
-import { Request } from "express"
-import { IncomingHttpHeaders } from "http";
+import JsonWebToken from "jsonwebtoken"
+import Keys from "../config/keys"
 
 class Utils {
 
@@ -10,6 +10,20 @@ class Utils {
     } else {
       return "en"
     }
+  }
+
+  static async sign(payload = {}, expiresIn = 1000): Promise<string> {
+    return new Promise((resolve, reject) => {
+      JsonWebToken.sign(
+        payload,
+        Keys.secretOrKey,
+        { expiresIn },
+        (error, token) => {
+          if (error) reject(error);
+          else resolve(`Bearer ${token}`);
+        }
+      );
+    });
   }
 }
 
