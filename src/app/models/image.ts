@@ -1,5 +1,15 @@
 import mongoose from "mongoose";
 
+export interface ImageInterface extends mongoose.Document {
+  data: string
+  author: mongoose.Schema.Types.ObjectId
+  dataType: string
+  resolution: {
+    height: number
+    width: number
+  }
+}
+
 const Image = new mongoose.Schema({
   data: {
     type: String,
