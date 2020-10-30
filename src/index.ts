@@ -2,12 +2,12 @@ import Express from "express";
 // import Cors from "cors";
 import passport from "passport";
 import Routes from "@utils/routes";
-// import routes from "app/routes";
+import routes from "./app/routes";
 import bodyParser from "body-parser";
 import helmet from "helmet";
 import morgan from "morgan";
 import mongoose from "mongoose";
-import Translation from "@utils/translation";
+import Translation from "./@utils/translation";
 import keys from "./config/keys";
 // import { Passport as PassportJwt } from "./services";
 
