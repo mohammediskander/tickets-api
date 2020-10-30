@@ -1,5 +1,6 @@
 import JsonWebToken from "jsonwebtoken"
 import Keys from "../config/keys"
+import bcrypt from "bcryptjs"
 
 class Utils {
 
@@ -23,6 +24,26 @@ class Utils {
           else resolve(`Bearer ${token}`);
         }
       );
+    });
+  }
+
+  static async hash(password: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      bcrypt
+        .genSalt(10)
+        .then((salt: any) => {
+          bcrypt
+            .hash(password, salt)
+            .then((hash: string) => {
+              resolve(hash);
+            })
+            .catch((error: any) => {
+              reject(error);
+            });
+        })
+        .catch((error: any) => {
+          reject(error);
+        });
     });
   }
 }
