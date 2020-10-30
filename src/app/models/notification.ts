@@ -1,5 +1,13 @@
 import mongoose from "mongoose";
 
+export interface NotificationInterface extends mongoose.Document {
+  title: string
+  body: string
+  date: Date
+  repeat: boolean | false
+  repeatAfter: number
+}
+
 const Notification = new mongoose.Schema({
   title: {
     type: String,
