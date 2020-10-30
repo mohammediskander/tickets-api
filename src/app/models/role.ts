@@ -1,5 +1,23 @@
 import mongoose from "mongoose";
 
+export interface AccessRightInterface {
+  create: boolean;
+  fetch: boolean;
+  gets: boolean;
+  patch: boolean;
+  delete: boolean;
+}
+
+export interface PriviligesInterface {
+  model: string;
+  accessRights: AccessRightInterface;
+}
+
+export interface RoleInterface {
+  name: string;
+  privileges: [PriviligesInterface];
+}
+
 const Role = new mongoose.Schema({
   name: {
     type: String,
