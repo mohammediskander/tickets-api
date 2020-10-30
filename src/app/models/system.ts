@@ -1,5 +1,15 @@
 import mongoose from "mongoose";
 
+export interface SystemInterface extends mongoose.Document {
+  defaults: {
+    [key: string]: any
+  },
+  project: {
+    name: string,
+    uri: string,
+  }
+}
+
 const System = new mongoose.Schema({
   defaults: {
     type: Object,
