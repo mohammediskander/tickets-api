@@ -1,5 +1,14 @@
 import mongoose from "mongoose";
 
+export interface EventInterface extends mongoose.Document {
+  title: string
+  body: string
+  time: Date
+  location: string
+  categories: [mongoose.Schema.Types.ObjectId]
+  user: mongoose.Schema.Types.ObjectId
+}
+
 const Event = new mongoose.Schema({
   title: {
     type: String,
