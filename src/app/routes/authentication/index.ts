@@ -1,6 +1,6 @@
 import create from "./create";
 import validate from "./validate";
-import { RouteInterface } from "@utils/routes"
+import { RouteInterface } from "../../../@utils/routes"
 
 const routes: RouteInterface[] = [
   {
